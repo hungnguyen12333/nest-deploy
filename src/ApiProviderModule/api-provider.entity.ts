@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity('ApiProviders')
+@Entity('apiProviders')
 export class ApiProvider {
   @PrimaryGeneratedColumn()
   id: number;
