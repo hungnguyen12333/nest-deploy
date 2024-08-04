@@ -21,7 +21,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         password: configService.get<string>('DB_PASSWORD', 'root'),
         database: configService.get<string>('DB_NAME', 'web-api'),
         entities: [ApiProvider],
-        synchronize: true,
+        synchronize: false,
       }),
       inject: [ConfigService],
     }),
