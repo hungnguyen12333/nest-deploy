@@ -2,8 +2,6 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ApiProvider } from './ApiProviderModule/api-provider.entity';
-import { ApiProviderModule } from './ApiProviderModule/api-provider.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 
 @Module({
@@ -20,13 +18,11 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         username: configService.get<string>('DB_USERNAME'),
         password: configService.get<string>('DB_PASSWORD'),
         database: configService.get<string>('DB_NAME'),
-        entities: [ApiProvider],
+        entities: [],
         synchronize: false,
       }),
       inject: [ConfigService],
     }),
-    TypeOrmModule.forFeature([ApiProvider]), // Khai báo ApiProvider repository
-    ApiProviderModule,
   ],
   controllers: [AppController],
   providers: [AppService],
