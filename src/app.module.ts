@@ -9,7 +9,6 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-   
   ],
   controllers: [AppController],
   providers: [AppService],
